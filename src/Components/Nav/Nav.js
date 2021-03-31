@@ -9,15 +9,19 @@ export default function Nav() {
       <nav>
         <NavUpperBox>
           <ImgLogo src="/images/class200ok-logo.png" />
-          <SpanText className="creatorCenter">
-            <Link to="/creator">크리에이터 센터</Link>
-          </SpanText>
+          <NavUpperDiv>
+            <SpanText>
+              <Link to="/creator">크리에이터 센터</Link>
+            </SpanText>
+            <SpanText>
+              <Link to="/login">로그인</Link>
+            </SpanText>
+          </NavUpperDiv>
         </NavUpperBox>
         <NavLowerBox>
           <NavList>
             <Link to="/oepn-soon">오픈 예정</Link>
           </NavList>
-
           <NavList>
             <Link to="/lectures">바로 수강</Link>
           </NavList>
@@ -28,7 +32,7 @@ export default function Nav() {
 }
 
 const NavBox = styled.div`
-  padding: 10px 150px;
+  padding: 20px 150px;
 `;
 
 const NavUpperBox = styled.div`
@@ -42,8 +46,14 @@ const ImgLogo = styled.img`
   height: 50px;
 `;
 
+const NavUpperDiv = styled.div`
+  width: 300px;
+  height: 50px;
+`;
+
 const SpanText = styled.span`
-  font-size: 20px;
+  margin: 0px 10px;
+  font-size: 15px;
 `;
 
 const NavLowerBox = styled.ul`
@@ -58,26 +68,11 @@ const NavLowerBox = styled.ul`
 const NavList = styled.li`
   display: inline;
   margin-left: 10px;
-  font-size: 25px;
-`;
+  padding-bottom: 5px;
+  font-size: 20px;
 
-/*
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
-
-.navbar {
-  font-family: "Noto Sans KR";
-
-  .navUpperBox {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 100px;
-
-    .logo {
-      width: 170px;
-      height: 50px;
-    }
+  &:hover {
+    border-bottom: 3px solid black;
+    border-radius: 2px;
   }
-}
-
-*/
+`;
