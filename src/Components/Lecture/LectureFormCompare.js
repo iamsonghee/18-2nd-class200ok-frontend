@@ -16,8 +16,7 @@ class LectureForm extends Component {
     });
   };
   render() {
-    console.log("최하위 votecount>", this.state.handleVoteCount)
-    const { format, data, handleVoteCount } = this.props;
+    const { format, data } = this.props;
     return (
       <>
         {this.state.openModal && (
@@ -25,51 +24,52 @@ class LectureForm extends Component {
             <Modal format="openSoon" id={data.id} />
           </Store.Provider>
         )}
-      <Wrapper>
-        <Content>
-        <LectureImg onClick={() => this.openModal(true)}>
-            <img src={data.cover_image} />
-          </LectureImg>
-          <Tags>
-            <span>{data.category}</span>
-            <span>{data.creator}</span>
-          </Tags>
-          <Title>{data.title}</Title>
-          {format.type === "lectureSoon" && (
-            <StatusTo>
-              💖
-              <span>{data.achieve_rate}</span>% 달성
-            </StatusTo>
+        <Wrapper>
+          <Content>
+            <LectureImg onClick={() => this.openModal(true)}>
+              <img src="https://cdn.class101.net/images/2f0d19c8-5dad-4ecd-a642-45f91e95fbeb/375xauto.webp" />
+            </LectureImg>
+            <Tags>
+              <span>라이프 스타일</span>
+              <span>프랑스어는 김서현</span>
+            </Tags>
+            <Title>
+              [프랑스어 입문] 루이비통과 샤넬 대신 프랑스어! 프랑스 문화!
+            </Title>
+            {format.type === "lectureSoon" && (
+              <StatusTo>
+                💖<span>139</span>% 달성
+              </StatusTo>
+            )}
+          </Content>
+          {format.type === "lectureSoon" ? (
+            <>
+              <Duedate>
+                응원 마감까지
+                <LeftDate>
+                  <span className="days">3</span>일 남음
+                </LeftDate>
+              </Duedate>
+              <Button>응원하기</Button>
+            </>
+          ) : (
+            <PriceInfo>
+              <BeforePrice>
+                <span className="befPrice">199,000원</span>
+                <span className="discountRate">35%</span>
+              </BeforePrice>
+              <FinalPrice>
+                <span className="finlPrice">
+                  월 <span>25,740원</span>
+                </span>
+                <span className="instMonth">
+                  <span>(5개월)</span>
+                </span>
+              </FinalPrice>
+            </PriceInfo>
           )}
-        </Content>
-        {format.type === "lectureSoon" ? (
-          <>
-            <Duedate>
-              응원 마감까지
-              <LeftDate>
-                <span className="days">{data.due_date}</span>일 남음
-              </LeftDate>
-            </Duedate>
-            <Button onClick={handleVoteCount} className="btn">응원하기</Button>
-          </>
-        ) : (
-          <PriceInfo>
-            <BeforePrice>
-              <span className="befPrice">199,000원</span>
-              <span className="discountRate">35%</span>
-            </BeforePrice>
-            <FinalPrice>
-              <span className="finlPrice">
-                월 <span>25,740원</span>
-              </span>
-              <span className="instMonth">
-                <span>(5개월)</span>
-              </span>
-            </FinalPrice>
-          </PriceInfo>
-        )}
-      </Wrapper>
-    </>
+        </Wrapper>
+      </>
     );
   }
 }
@@ -84,7 +84,6 @@ const Wrapper = styled.section`
 `;
 const LectureImg = styled.div`
   width: 100%;
-
   border-radius: 10px;
   overflow: hidden;
   img {

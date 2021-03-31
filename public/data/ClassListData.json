@@ -10,8 +10,8 @@
       "category": "튀김",
       "creator": "굽네",
       "title": "굽네 양념 히어로 치킨 시리즈",
-      "achieveRate": "120",
-      "dueDate": "1"
+      "achieve_rate": "120",
+      "due_date": "1"
     },
     {
       "id": 2,
@@ -19,8 +19,8 @@
       "category": "튀김",
       "creator": "굽네",
       "title": "굽네 양념 히어로 반반 치킨 시리즈",
-      "achieveRate": "100",
-      "dueDate": "3"
+      "achieve_rate": "100",
+      "due_date": "3"
     },
     {
       "id": 3,
@@ -28,8 +28,8 @@
       "category": "튀김",
       "creator": "굽네",
       "title": "굽네 갈비천왕 시리즈",
-      "achieveRate": "90",
-      "dueDate": "5" 
+      "achieve_rate": "90",
+      "due_date": "5" 
     },
     {
       "id": 4,
@@ -37,8 +37,8 @@
       "category": "오븐",
       "creator": "굽네",
       "title": "굽네 오리지널 시리즈",
-      "achieveRate": "80",
-      "dueDate": "6"
+      "achieve_rate": "80",
+      "due_date": "6"
     },
     {
       "id": 5,
@@ -46,8 +46,8 @@
       "category": "튀김",
       "creator": "굽네",
       "title": "굽네 볼케이노 시리즈", 
-      "achieveRate": "20",
-      "dueDate": "10"
+      "achieve_rate": "20",
+      "due_date": "10"
     },
     {
       "id": 6,
@@ -55,8 +55,8 @@
       "category": "튀김",
       "creator": "굽네",
       "title": "굽네 마라 볼케이노 시리즈", 
-      "achieveRate": "99",
-      "dueDate": "12"
+      "achieve_rate": "99",
+      "due_date": "12"
     },
     {
       "id": 5,
@@ -64,8 +64,8 @@
       "category": "튀김",
       "creator": "굽네",
       "title": "굽네 볼케이노 시리즈", 
-      "achieveRate": "20",
-      "dueDate": "10"
+      "achieve_rate": "20",
+      "due_date": "10"
     },
     {
       "id": 5,
@@ -73,8 +73,8 @@
       "category": "튀김",
       "creator": "굽네",
       "title": "굽네 볼케이노 시리즈", 
-      "achieveRate": "20",
-      "dueDate": "10"
+      "achieve_rate": "20",
+      "due_date": "10"
     },
     {
       "id": 5,
@@ -82,8 +82,8 @@
       "category": "튀김",
       "creator": "굽네",
       "title": "굽네 볼케이노 시리즈", 
-      "achieveRate": "20",
-      "dueDate": "10"
+      "achieve_rate": "20",
+      "due_date": "10"
     }
   ]
 }

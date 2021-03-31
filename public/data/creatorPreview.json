@@ -1,0 +1,29 @@
+{
+  "lectureId": "aaaa",
+  "title": "쉽게 배워 만드는 구움과자와 파운드. 제주도 풍광을 담은 시그니처 디저트를 배워보세요.",
+
+  "images": [
+    {
+      "imgURL": "https://class101.net/images/add-photo-portrait.png",
+      "tags": []
+    },
+    {
+      "imgURL": "https://class101.net/images/add-photo-portrait.png"
+    },
+    {
+      "imgURL": "https://class101.net/images/add-photo-portrait.png"
+    },
+    {
+      "imgURL": "https://class101.net/images/add-photo-portrait.png"
+    },
+    {
+      "imgURL": "https://class101.net/images/add-photo-portrait.png"
+    },
+    {
+      "imgURL": "https://class101.net/images/add-photo-portrait.png"
+    },
+    {
+      "imgURL": "https://class101.net/images/add-photo-portrait.png"
+    }
+  ]
+}

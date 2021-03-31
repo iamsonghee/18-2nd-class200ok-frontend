@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 import styled from "styled-components";
@@ -8,7 +9,7 @@ function CreatorInfoContent(props) {
     file: "",
     imagePreviewUrl: "",
   });
-  const setUploadImg = event => {
+  const setUploadImg = (event) => {
     event.preventDefault();
     let reader = new FileReader();
     let file = event.target.files[0];

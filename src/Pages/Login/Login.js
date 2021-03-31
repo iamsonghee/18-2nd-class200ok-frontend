@@ -1,27 +1,29 @@
-import React, { Component } from "react";
+/* eslint-disable */
+import React, { Component, useEffect } from "react";
+import { withRouter } from "react-router";
 import styled from "styled-components";
 import * as config from "../../config";
 import loginimage from "../../Pages/Login/login.png";
 
-function Login() {
+ function Login(props) {
   const { Kakao } = window;
-  Kakao.init(config.KAKAO_LDH_KEY);
-  console.log(Kakao.isInitialized());
-
+  console.log(props)
+  //카카오 이메일 계정이 없는 경우 key_error 에러 
   const handleKakao = response => {
     Kakao.Auth.login({
-      success: function (response) {
-        fetch("http://10.58.0.113:8000/user/signin", {
+      success: 
+      function (response) {
+        fetch("http://10.58.3.60:8000/user/signin", {
           method: "POST",
           headers: {
-            Authorization: response.access_token,
-          },
+            Authorization: response.new_token,
+          }, 
         })
           .then(res => res.json())
           .then(res => {
-            localStorage.setItem("access_token", res.new_token);
+            localStorage.setItem("access_token", res.access_token);
           })
-          .then(alert("로그인 성공"));
+          .then(props.history.push("/open-soon"));
         console.log("reresponse>>>", response);
       },
       fail: function (error) {
@@ -54,7 +56,8 @@ function Login() {
     </LoginPage>
   );
 }
-export default Login;
+export default withRouter(Login)
+
 
 const buttonStyle = styled.button`
   display: flex;
