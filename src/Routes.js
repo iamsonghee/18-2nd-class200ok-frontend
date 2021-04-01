@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Login from "./Pages/Login/Login";
+import CreatorNav from "../src/Pages/Creator/CreatorNav";
 
 export class Routes extends Component {
   render() {
     return (
       <Router>
         <Switch>
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/creatornav" component={CreatorNav} />
         </Switch>
       </Router>
     );
