@@ -161,6 +161,7 @@ const CreatorNavBox = styled.div`
   @media screen and (max-width: 1250px) {
     display: none;
   }
+  height: 100vh;
 `;
 
 // const NavCreatorintroduce = styled.div`

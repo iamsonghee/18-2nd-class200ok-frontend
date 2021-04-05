@@ -6,6 +6,7 @@ import Login from "./Pages/Login/Login";
 import OpenSoon from "./Pages/OpenSoon/OpenSoon";
 import Creatorinfo from "../src/Pages/Creator/Creatorinfo";
 import Creatorintroduce from "../src/Pages/Creator/Creatorintroduce";
+import CreatorTitle from "./Pages/Creator/CreatorTitle";
 
 export class Routes extends Component {
   render() {
@@ -18,7 +19,7 @@ export class Routes extends Component {
           <Route exact path="/Example" component={Example} />
           <Route exact path="/creatorintroduce" component={Creatorintroduce} />
           <Route exact path="/creatorinfo" component={Creatorinfo} />
-          <Route exact path="/open-soon" component={OpenSoon} />
+          <Route exact path="/creator-title-cover" component={CreatorTitle} />
         </Switch>
       </Router>
     );
