@@ -4,9 +4,11 @@ import LectureForm from "./LectureForm";
 
 export default class Lecture extends Component {
   render() {
+    const { data } = this.props;
+    console.log("첫번째", data);
     return (
       <div>
-        <LectureForm format={lectureSoonProps} />
+        <LectureForm format={lectureSoonProps} data={data} />
       </div>
     );
   }
@@ -15,7 +17,6 @@ export default class Lecture extends Component {
 const lectureSoonProps = {
   type: "lectureSoon",
   text: "오픈예정",
-  data: [],
 };
 
 const lectureNowProps = {

@@ -3,23 +3,23 @@ import styled from "styled-components";
 
 class LectureForm extends Component {
   render() {
-    const { format } = this.props;
+    console.log("와우", this.props.format);
+    const { format, data } = this.props;
     return (
       <Wrapper>
         <Content>
           <LectureImg>
-            <img src="https://cdn.class101.net/images/2f0d19c8-5dad-4ecd-a642-45f91e95fbeb/375xauto.webp" />
+            <img src={data.cover_image} />
           </LectureImg>
           <Tags>
-            <span>라이프 스타일</span>
-            <span>프랑스어는 김서현</span>
+            <span>{data.category}</span>
+            <span>{data.creator}</span>
           </Tags>
-          <Title>
-            [프랑스어 입문] 루이비통과 샤넬 대신 프랑스어! 프랑스 문화!
-          </Title>
+          <Title>{data.title}</Title>
           {format.type === "lectureSoon" && (
             <StatusTo>
-              💖<span>139</span>% 달성
+              💖
+              <span>{data.achieveRate}</span>% 달성
             </StatusTo>
           )}
         </Content>
@@ -28,7 +28,7 @@ class LectureForm extends Component {
             <Duedate>
               응원 마감까지
               <LeftDate>
-                <span className="days">3</span>일 남음
+                <span className="days">{data.dueDate}</span>일 남음
               </LeftDate>
             </Duedate>
             <Button>응원하기</Button>
@@ -60,9 +60,11 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-top: 30px;
 `;
 const LectureImg = styled.div`
   width: 100%;
+
   border-radius: 10px;
   overflow: hidden;
   img {

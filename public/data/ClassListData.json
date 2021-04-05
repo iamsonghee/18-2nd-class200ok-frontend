@@ -1,0 +1,89 @@
+{
+  "username": "김똘똘",
+  "voted_class_count": 3,
+  "my_voting_power": 20,
+  "pending_classes" : 
+  [
+    {
+      "id": 1,
+      "cover_image": "https://order.goobne.co.kr:8481//Upload/menu//2021032211455185_fo3o42ux.png",
+      "category": "튀김",
+      "creator": "굽네",
+      "title": "굽네 양념 히어로 치킨 시리즈",
+      "achieveRate": "120",
+      "dueDate": "1"
+    },
+    {
+      "id": 2,
+      "cover_image": "https://order.goobne.co.kr:8481//Upload/menu//2021032211471119_xj3e4l4v.png",
+      "category": "튀김",
+      "creator": "굽네",
+      "title": "굽네 양념 히어로 반반 치킨 시리즈",
+      "achieveRate": "100",
+      "dueDate": "3"
+    },
+    {
+      "id": 3,
+      "cover_image": "https://order.goobne.co.kr:8481//Upload/menu//101030414.png",
+      "category": "튀김",
+      "creator": "굽네",
+      "title": "굽네 갈비천왕 시리즈",
+      "achieveRate": "90",
+      "dueDate": "5" 
+    },
+    {
+      "id": 4,
+      "cover_image": "https://order.goobne.co.kr:8481//Upload/menu//굽네오리지널치킨_L_01.png",
+      "category": "오븐",
+      "creator": "굽네",
+      "title": "굽네 오리지널 시리즈",
+      "achieveRate": "80",
+      "dueDate": "6"
+    },
+    {
+      "id": 5,
+      "cover_image": "https://order.goobne.co.kr:8481//Upload/menu//굽네볼케이노_L_01.png",
+      "category": "튀김",
+      "creator": "굽네",
+      "title": "굽네 볼케이노 시리즈", 
+      "achieveRate": "20",
+      "dueDate": "10"
+    },
+    {
+      "id": 6,
+      "cover_image": "https://order.goobne.co.kr:8481//Upload/menu//2019070510301479_eac211@!.png",
+      "category": "튀김",
+      "creator": "굽네",
+      "title": "굽네 마라 볼케이노 시리즈", 
+      "achieveRate": "99",
+      "dueDate": "12"
+    },
+    {
+      "id": 5,
+      "cover_image": "https://order.goobne.co.kr:8481//Upload/menu//굽네볼케이노_L_01.png",
+      "category": "튀김",
+      "creator": "굽네",
+      "title": "굽네 볼케이노 시리즈", 
+      "achieveRate": "20",
+      "dueDate": "10"
+    },
+    {
+      "id": 5,
+      "cover_image": "https://order.goobne.co.kr:8481//Upload/menu//굽네볼케이노_L_01.png",
+      "category": "튀김",
+      "creator": "굽네",
+      "title": "굽네 볼케이노 시리즈", 
+      "achieveRate": "20",
+      "dueDate": "10"
+    },
+    {
+      "id": 5,
+      "cover_image": "https://order.goobne.co.kr:8481//Upload/menu//굽네볼케이노_L_01.png",
+      "category": "튀김",
+      "creator": "굽네",
+      "title": "굽네 볼케이노 시리즈", 
+      "achieveRate": "20",
+      "dueDate": "10"
+    }
+  ]
+}
