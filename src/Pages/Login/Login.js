@@ -8,7 +8,7 @@ function Login() {
   Kakao.init(config.KAKAO_LDH_KEY);
   console.log(Kakao.isInitialized());
 
-  const handleKakao = (response) => {
+  const handleKakao = response => {
     Kakao.Auth.login({
       success: function (response) {
         fetch("http://10.58.0.113:8000/user/signin", {
@@ -17,8 +17,8 @@ function Login() {
             Authorization: response.access_token,
           },
         })
-          .then((res) => res.json())
-          .then((res) => {
+          .then(res => res.json())
+          .then(res => {
             localStorage.setItem("access_token", res.new_token);
           })
           .then(alert("로그인 성공"));

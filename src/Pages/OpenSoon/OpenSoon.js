@@ -14,8 +14,8 @@ class OpenSoon extends Component {
 
   componentDidMount = () => {
     fetch(mockAPI)
-      .then((res) => res.json())
-      .then((res) => this.setState({ classList: res }));
+      .then(res => res.json())
+      .then(res => this.setState({ classList: res }));
   };
 
   render() {
@@ -35,7 +35,7 @@ class OpenSoon extends Component {
         {/* <filter sortClass={sortClass} sortPrice={sortPrice} /> */}
         <div className="openSoonMain">
           <div className="list">
-            {classList.pending_classes?.map((data) => {
+            {classList.pending_classes?.map(data => {
               return <Lecture data={data} />;
             })}
           </div>

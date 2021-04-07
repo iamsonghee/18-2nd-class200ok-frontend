@@ -4,7 +4,7 @@ import styled from "styled-components";
 function Creatorinfo() {
   const [inputState, inputSetstate] = useState("");
 
-  const handleInputColor = (e) => {
+  const handleInputColor = e => {
     inputSetstate(e.target.value);
   };
 
@@ -104,7 +104,7 @@ const CreatorInfoSelect = styled.form`
     width: 100%;
     margin-bottom: 40px;
     padding: 0px 48px 0px 16px;
-    border: ${(props) =>
+    border: ${props =>
       props.inputState.length === 0
         ? "1px solid red"
         : "1px solid rgb(239, 239, 239);"};
