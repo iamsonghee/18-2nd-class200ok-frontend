@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import Creatorintroduce from "./Creatorintroduce";
 
 const CreatorNav = () => {
   const [tap, setTap] = useState([]);
@@ -8,13 +9,13 @@ const CreatorNav = () => {
     setTap([true, ...navArray]);
   }, []);
 
-  const clickTap = (index) => {
+  const clickTap = index => {
     const newArr = Array(CREATE_NAV_ARRAY.length).fill(false);
     newArr[index] = true;
     setTap(newArr);
   };
 
-  const indexMove = (num) => {
+  const indexMove = num => {
     const newArr = Array(CREATE_NAV_ARRAY.length).fill(false);
     const tapIndex = tap.indexOf(true);
     const tapIndexCondition = num === 1 ? tapIndex < 6 : tapIndex >= 1;
@@ -50,6 +51,9 @@ const CreatorNav = () => {
           );
         })}
       </CreatorNavBox>
+      {/* <NavCreatorintroduce>
+        <Creatorintroduce />
+      </NavCreatorintroduce> */}
       <Creatorbottom>
         <div className="CreatorbottomLeft" onClick={() => indexMove(-1)}>
           이전
@@ -103,8 +107,10 @@ const CreatorHeader = styled.div`
   width: 100%;
   height: 72px;
   padding: 16px 24px;
+  background-color: white;
   border-bottom: 2px solid rgb(228, 228, 228);
   align-items: center;
+  z-index: 5;
 
   .headerLeftItem {
     display: flex;
@@ -156,6 +162,14 @@ const CreatorNavBox = styled.div`
   }
 `;
 
+// const NavCreatorintroduce = styled.div`
+//   position: relative;
+//   width: 130%;
+//   top: 60px;
+//   left: 250px;
+//   padding: 32px 32px 60px;
+// `;
+
 const CreatorNavContent = styled.div`
   display: flex;
   width: 227px;
@@ -163,7 +177,7 @@ const CreatorNavContent = styled.div`
   padding: 12px;
   margin: 13px;
   border-radius: 5px;
-  background: ${(props) => (props.isClicked ? "rgb(239, 239, 239)" : "")};
+  background: ${props => (props.isClicked ? "rgb(239, 239, 239)" : "")};
   cursor: pointer;
 
   &:hover {
@@ -183,13 +197,13 @@ const CreatorNavContent = styled.div`
     padding-top: 2px;
     border-bottom: 1px solid rgb(239, 239, 239);
     border-radius: 5px;
-    background-color: ${(props) => (props.isClicked ? "white" : "")};
+    background-color: ${props => (props.isClicked ? "white" : "")};
   }
 `;
 
 const CreatorNavItem = styled.div`
   padding: 6px 10px;
-  color: ${(props) => (props.isClicked ? "black" : "rgb(189, 189, 189)")};
+  color: ${props => (props.isClicked ? "black" : "rgb(189, 189, 189)")};
   font-size: 16px;
   font-weight: 700;
 `;
@@ -198,13 +212,15 @@ const Creatorbottom = styled.div`
   display: flex;
   position: fixed;
   justify-content: space-between;
+  align-items: center;
   right: 0px;
   bottom: 0px;
   height: 76px;
   padding: 15px;
   width: calc(100% - 248px);
-  align-items: center;
+  background-color: white;
   border-top: 1px solid rgb(239, 239, 239);
+  z-index: 5;
 
   @media screen and (max-width: 1250px) {
     width: 100%;
