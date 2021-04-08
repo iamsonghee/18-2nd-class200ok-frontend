@@ -18,6 +18,7 @@ export class Routes extends Component {
           <Route exact path="/Example" component={Example} />
           <Route exact path="/creatorintroduce" component={Creatorintroduce} />
           <Route exact path="/creatorinfo" component={Creatorinfo} />
+          <Route exact path="/open-soon" component={OpenSoon} />
         </Switch>
       </Router>
     );

@@ -4,14 +4,10 @@ import LectureForm from "./LectureForm";
 
 export default class Lecture extends Component {
   render() {
-    const { data, handleVoteCount } = this.props;
+    const { data } = this.props;
     return (
       <div>
-        <LectureForm
-          format={lectureSoonProps}
-          data={data}
-          handleVoteCount={handleVoteCount}
-        />
+        <LectureForm format={lectureSoonProps} data={data} />
       </div>
     );
   }
