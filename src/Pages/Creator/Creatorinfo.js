@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-function Creatorinfo() {
+function Creatorinfo(props) {
   const [inputState, inputSetstate] = useState("");
 
   const handleInputColor = e => {

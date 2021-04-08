@@ -16,6 +16,7 @@ class LectureForm extends Component {
     });
   };
   render() {
+		console.log("this.state.openModal : ",this.state.openModal);
     console.log("최하위 votecount>", this.state.handleVoteCount)
     const { format, data, handleVoteCount } = this.props;
     return (
@@ -84,7 +85,6 @@ const Wrapper = styled.section`
 `;
 const LectureImg = styled.div`
   width: 100%;
-
   border-radius: 10px;
   overflow: hidden;
   img {

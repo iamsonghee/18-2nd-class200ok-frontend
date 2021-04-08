@@ -3,16 +3,48 @@ import styled from "styled-components";
 import CreatorInfoContent from "./../../Components/Lecture/CreatorInfoItem";
 
 function Creatorintroduce() {
+  const [imageList, setImageList] = useState([]);
+
+  const handleBtn = () => {
+    const formData = new FormData();
+    formData.append("file", imageList);
+    console.log("fromdata:", formData);
+
+    fetch("#", {
+      method: "POST",
+      headers: {
+        // Authorization: response.new_token,
+        body: formData,
+      },
+      body: formData,
+    })
+      .then(res => res.json())
+      .then(res => {});
+  };
+
+  const handleAddImg = (id, img) => {
+    const addImgArray = [...imageList];
+    addImgArray[id] = img;
+    setImageList(addImgArray);
+  };
+  console.log(imageList);
   return (
     <CreatorIntroSection>
-      <CreatorInfoHeader>어떤 걸 알려주실 수 있나요?</CreatorInfoHeader>
+      <CreatorInfoHeader>
+        어떤 걸 알려주실 수 있나요?<button onClick={handleBtn}>전송</button>
+      </CreatorInfoHeader>
       <CreatorInfoArticle>
         클래스를 통해 알려주실 것과 완성할 수 있는 것들을 설명해 주세요.
       </CreatorInfoArticle>
       <CreatorInfoList className="CreatorInfoList">
         {CREATOR_BOX.map(box => {
           return (
-            <CreatorInfoContent key={box.id} id={box.id} text={box.text} />
+            <CreatorInfoContent
+              key={box.id}
+              id={box.id}
+              text={box.text}
+              handleAddImg={handleAddImg}
+            />
           );
         })}
       </CreatorInfoList>
@@ -61,6 +93,10 @@ const CreatorInfoHeader = styled.header`
   letter-spacing: -0.4px;
   font-size: 24px;
   font-weight: bold;
+
+  button {
+    margin-left: 10px;
+  }
 `;
 
 const CreatorInfoArticle = styled.div`
