@@ -29,6 +29,7 @@ class Modal extends Component {
   }
 
   render() {
+		console.log("Modal!!!!!" , this.state.data)
     return (
       <>
         {Object.keys(this.state.data).length > 0 && (

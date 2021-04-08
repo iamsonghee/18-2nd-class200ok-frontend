@@ -36,13 +36,13 @@ export default function Nav() {
             <NavUpperDiv>
               {isLogin && (
                 <DivText>
-                  <Link to="/creator">크리에이터 센터</Link>
+                  <Link to="/creator/0">크리에이터 센터</Link>
                   <LogoutBtn onClick={handleLogout}>로그아웃</LogoutBtn>
                 </DivText>
               )}
               {!isLogin && (
                 <DivText>
-                  <Link to="/creator">크리에이터 지원</Link>
+                  <Link to="/creator/0">크리에이터 지원</Link>
                   <Link to="/login">로그인</Link>
                 </DivText>
               )}

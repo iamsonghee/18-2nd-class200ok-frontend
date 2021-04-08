@@ -1,9 +1,9 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Creatorintroduce from "./Creatorintroduce";
+import { withRouter,Link } from "react-router-dom";
 
-const CreatorNav = () => {
+const CreatorNav = props => {
   const [tap, setTap] = useState([]);
   const navArray = Array(CREATE_NAV_ARRAY.length - 1).fill(false);
   useEffect(() => {
@@ -14,6 +14,7 @@ const CreatorNav = () => {
     const newArr = Array(CREATE_NAV_ARRAY.length).fill(false);
     newArr[index] = true;
     setTap(newArr);
+    props.history.push(`/creator/${index}`);
   };
 
   const indexMove = num => {
@@ -22,10 +23,13 @@ const CreatorNav = () => {
     const tapIndexCondition = num === 1 ? tapIndex < 6 : tapIndex >= 1;
 
     tapIndexCondition
-      ? (newArr[tapIndex + num] = true)
+      ? (newArr[tapIndex + num] = true) &&
+        props.history.push(`/creator/${tapIndex + num}`)
       : (newArr[tapIndex] = true);
     setTap(newArr);
   };
+
+  const saveImg = () => {};
 
   return (
     <>
@@ -34,13 +38,14 @@ const CreatorNav = () => {
           <div className="headerIcon">101</div>
           <div className="headerText">수요조사 시작하기</div>
         </div>
-        <div className="headerExit">나가기</div>
+        <div className="headerExit"><Link to="/OpenSoon">나가기</Link></div>
       </CreatorHeader>
       <CreatorNavBox>
         {CREATE_NAV_ARRAY.map((e, index) => {
           return (
             <CreatorNavContent
               key={e.id}
+              id={index}
               onClick={() => clickTap(index)}
               isClicked={tap[index]}
             >
@@ -60,7 +65,9 @@ const CreatorNav = () => {
           이전
         </div>
         <div className="CreatorbottomRight">
-          <div className="CreatorbottomSave">저장하기</div>
+          <div className="CreatorbottomSave" onClick="saveImg">
+            저장하기
+          </div>
           <div className="CreatorbottomNext" onClick={() => indexMove(1)}>
             다음
           </div>
@@ -111,7 +118,7 @@ const CreatorHeader = styled.div`
   background-color: white;
   border-bottom: 2px solid rgb(228, 228, 228);
   align-items: center;
-  z-index: 5;
+  z-index: 10;
 
   .headerLeftItem {
     display: flex;
@@ -220,8 +227,9 @@ const Creatorbottom = styled.div`
   padding: 15px;
   width: calc(100% - 248px);
   background-color: white;
+  align-items: center;
   border-top: 1px solid rgb(239, 239, 239);
-  z-index: 5;
+  z-index: 10;
 
   @media screen and (max-width: 1250px) {
     width: 100%;
@@ -272,4 +280,4 @@ const Creatorbottom = styled.div`
   }
 `;
 
-export default CreatorNav;
+export default withRouter(CreatorNav);

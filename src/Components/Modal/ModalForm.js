@@ -9,11 +9,21 @@ class ModalForm extends Component {
   render() {
     // const { id } = this.state;
     return (
-      <LecModal>
-        <ModalLayout type={this.props.format.type} data={this.props.data}>
-          {this.props.format.type === "openSoon" && <BottomBox />}
-        </ModalLayout>
-      </LecModal>
+      <>
+        {this.props.format.type === "openSoon" ? (
+          <LecModal>
+            <ModalLayout type={this.props.format.type} data={this.props.data}>
+              {this.props.format.type === "openSoon" && <BottomBox />}
+            </ModalLayout>
+          </LecModal>
+        ) : (
+          <LecCreator>
+            <ModalLayout type={this.props.format.type} data={this.props.data}>
+              {this.props.format.type === "openSoon" && <BottomBox />}
+            </ModalLayout>
+          </LecCreator>
+        )}
+      </>
     );
   }
 }
@@ -30,5 +40,14 @@ const LecModal = styled.div`
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.56);
+  z-index: 1;
+`;
+
+const LecCreator = styled.div`
+  position: fixed;
+  top: 15%;
+  right: 5%;
+  display: flex;
+  align-items: center;
   z-index: 1;
 `;

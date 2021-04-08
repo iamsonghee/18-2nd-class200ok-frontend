@@ -5,7 +5,9 @@ import Example from "./Pages/Example/Example";
 import Login from "./Pages/Login/Login";
 import OpenSoon from "./Pages/OpenSoon/OpenSoon";
 import Creatorinfo from "../src/Pages/Creator/Creatorinfo";
-import Creatorintroduce from "../src/Pages/Creator/Creatorintroduce";
+import Creator from "../src/Pages/Creator/Creator";
+import ModalLayout from "./Components/Modal/ModalLayout";
+import Modal from "./Components/Modal/Modal";
 
 export class Routes extends Component {
   render() {
@@ -16,9 +18,9 @@ export class Routes extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/OpenSoon" component={OpenSoon} />
           <Route exact path="/Example" component={Example} />
-          <Route exact path="/creatorintroduce" component={Creatorintroduce} />
+          <Route exact path="/ModalLayout" component={Modal} />
           <Route exact path="/creatorinfo" component={Creatorinfo} />
-          <Route exact path="/open-soon" component={OpenSoon} />
+          <Route exact path="/creator/:id" component={Creator} />
         </Switch>
       </Router>
     );

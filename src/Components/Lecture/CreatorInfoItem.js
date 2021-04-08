@@ -9,7 +9,7 @@ function CreatorInfoContent(props) {
     file: "",
     imagePreviewUrl: "",
   });
-  const setUploadImg = (event) => {
+  const setUploadImg = event => {
     event.preventDefault();
     let reader = new FileReader();
     let file = event.target.files[0];
@@ -71,23 +71,19 @@ const CreatorInfoItem = styled.div`
     height: 28vw;
     z-index: 2;
     cursor: pointer;
-
     @media screen and (max-width: 1375px) {
       width: 24vw;
       height: 35vw;
     }
-
     img {
       width: 100%;
       height: 100%;
     }
   }
-
   input {
     position: absolute;
     width: 16vw;
     height: 28vw;
-
     @media screen and (max-width: 1375px) {
       width: 24vw;
       height: 50vw;
@@ -109,7 +105,6 @@ const CreatorInfoMedia = styled.div`
   border: 1px solid rgb(229, 229, 229);
   align-items: center;
   cursor: pointer;
-
   .hideImg {
     position: absolute;
     width: 30px;
@@ -119,7 +114,6 @@ const CreatorInfoMedia = styled.div`
     background-color: white;
     z-index: 3;
   }
-
   .removestate {
     display: flex;
     position: absolute;
@@ -134,7 +128,6 @@ const CreatorInfoMedia = styled.div`
     border-radius: 50px;
     z-index: 5;
   }
-
   img {
     width: 72px;
     height: 72px;
@@ -154,7 +147,6 @@ const CreatorInfoTextarea = styled.textarea`
   padding: 20px;
   border: 1px solid rgb(229, 229, 229);
   outline-color: black;
-
   ::placeholder {
     color: rgb(202, 202, 202);
   }
