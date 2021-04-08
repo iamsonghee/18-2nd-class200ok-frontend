@@ -7,13 +7,6 @@ import CreatorTitle from "./CreatorTitle";
 import Modal from "../../Components/Modal/Modal";
 
 export class Creator extends Component {
-  componentDidMount() {
-    console.log("************", this.props);
-  }
-  componentDidUpdate(prevProps, prevState) {
-    console.log("************", this.props.match.params.id);
-  }
-
   render() {
     return (
       <div>

@@ -37,7 +37,8 @@ class ModalLayout extends Component {
     }
     if (
       this.state.intervalId === null &&
-      this.state.id < this.state.imgLength
+      this.state.id < this.state.imgLength &&
+      this.props.type === "openSoon"
     ) {
       const intervalId = setInterval(() => {
         this.handleNext();
@@ -73,6 +74,7 @@ class ModalLayout extends Component {
   };
 
   render() {
+    console.log(this.props);
     const { id } = this.state;
     return (
       <Form>
@@ -89,16 +91,18 @@ class ModalLayout extends Component {
               );
             })}
           </StatusBars>
-          <Store.Consumer>
-            {fnOpenModal => (
-              <div
-                className="btnRound btn"
-                onClick={() => this.handleClose(fnOpenModal)}
-              >
-                <i className="fas fa-times" />
-              </div>
-            )}
-          </Store.Consumer>
+          {this.props.type === "openSoon" && (
+            <Store.Consumer>
+              {fnOpenModal => (
+                <div
+                  className="btnRound btn"
+                  onClick={() => this.handleClose(fnOpenModal)}
+                >
+                  <i className="fas fa-times" />
+                </div>
+              )}
+            </Store.Consumer>
+          )}
           <GradientBottom />
           <ModalArrows
             handleNext={this.handleNext}
@@ -110,10 +114,7 @@ class ModalLayout extends Component {
                 return <span key={idx}>{tag}</span>;
               })}
             </Tags>
-            <div className="titleText">
-              쉽게 배워 만드는 구움과자와 파운드. 제주도 풍광을 담은 시그니처
-              디저트를 배워보세요.
-            </div>
+            <div className="titleText">{this.props.data.title} </div>
           </Title>
         </Main>
         {this.props.children}
@@ -199,7 +200,7 @@ const Main = styled.div`
     color: white;
     font-size: 18px;
     padding: 8px;
-    z-index: 1;
+    z-index: 3;
   }
 `;
 const Img = styled.img`

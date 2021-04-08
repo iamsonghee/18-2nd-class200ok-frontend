@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CreatorNav from "../src/Pages/Creator/CreatorNav";
@@ -6,7 +7,6 @@ import Login from "./Pages/Login/Login";
 import OpenSoon from "./Pages/OpenSoon/OpenSoon";
 import Creatorinfo from "../src/Pages/Creator/Creatorinfo";
 import Creator from "../src/Pages/Creator/Creator";
-import ModalLayout from "./Components/Modal/ModalLayout";
 import Modal from "./Components/Modal/Modal";
 
 export class Routes extends Component {
@@ -16,7 +16,7 @@ export class Routes extends Component {
         <Switch>
           <Route exact path="/creatornav" component={CreatorNav} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/OpenSoon" component={OpenSoon} />
+          <Route exact path="/" component={OpenSoon} />
           <Route exact path="/Example" component={Example} />
           <Route exact path="/ModalLayout" component={Modal} />
           <Route exact path="/creatorinfo" component={Creatorinfo} />

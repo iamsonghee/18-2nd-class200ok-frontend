@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Modal from "../Modal/Modal";
-//import Store from "../../store";
 
 export const Store = React.createContext();
 
