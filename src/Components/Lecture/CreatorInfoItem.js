@@ -17,6 +17,7 @@ function CreatorInfoContent(props) {
       setImgPreview({ file: file, imagePreviewUrl: reader.result });
     };
     reader.readAsDataURL(file);
+    props.handleAddImg(props.id, file);
   };
 
   const removeState = () => {

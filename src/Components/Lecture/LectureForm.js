@@ -15,8 +15,8 @@ class LectureForm extends Component {
     });
   };
   render() {
-		console.log("this.state.openModal : ",this.state.openModal);
-    console.log("최하위 votecount>", this.state.handleVoteCount)
+    console.log("this.state.openModal : ", this.state.openModal);
+    console.log("최하위 votecount>", this.state.handleVoteCount);
     const { format, data, handleVoteCount } = this.props;
     return (
       <>
@@ -25,51 +25,53 @@ class LectureForm extends Component {
             <Modal format="openSoon" id={data.id} />
           </Store.Provider>
         )}
-      <Wrapper>
-        <Content>
-        <LectureImg onClick={() => this.openModal(true)}>
-            <img src={data.cover_image} />
-          </LectureImg>
-          <Tags>
-            <span>{data.category}</span>
-            <span>{data.creator}</span>
-          </Tags>
-          <Title>{data.title}</Title>
-          {format.type === "lectureSoon" && (
-            <StatusTo>
-              💖
-              <span>{data.achieve_rate}</span>% 달성
-            </StatusTo>
+        <Wrapper>
+          <Content>
+            <LectureImg onClick={() => this.openModal(true)}>
+              <img src={data.cover_image} />
+            </LectureImg>
+            <Tags>
+              <span>{data.category}</span>
+              <span>{data.creator}</span>
+            </Tags>
+            <Title>{data.title}</Title>
+            {format.type === "lectureSoon" && (
+              <StatusTo>
+                💖
+                <span>{data.achieve_rate}</span>% 달성
+              </StatusTo>
+            )}
+          </Content>
+          {format.type === "lectureSoon" ? (
+            <>
+              <Duedate>
+                응원 마감까지
+                <LeftDate>
+                  <span className="days">{data.due_date}</span>일 남음
+                </LeftDate>
+              </Duedate>
+              <Button onClick={handleVoteCount} className="btn">
+                응원하기
+              </Button>
+            </>
+          ) : (
+            <PriceInfo>
+              <BeforePrice>
+                <span className="befPrice">199,000원</span>
+                <span className="discountRate">35%</span>
+              </BeforePrice>
+              <FinalPrice>
+                <span className="finlPrice">
+                  월 <span>25,740원</span>
+                </span>
+                <span className="instMonth">
+                  <span>(5개월)</span>
+                </span>
+              </FinalPrice>
+            </PriceInfo>
           )}
-        </Content>
-        {format.type === "lectureSoon" ? (
-          <>
-            <Duedate>
-              응원 마감까지
-              <LeftDate>
-                <span className="days">{data.due_date}</span>일 남음
-              </LeftDate>
-            </Duedate>
-            <Button onClick={handleVoteCount} className="btn">응원하기</Button>
-          </>
-        ) : (
-          <PriceInfo>
-            <BeforePrice>
-              <span className="befPrice">199,000원</span>
-              <span className="discountRate">35%</span>
-            </BeforePrice>
-            <FinalPrice>
-              <span className="finlPrice">
-                월 <span>25,740원</span>
-              </span>
-              <span className="instMonth">
-                <span>(5개월)</span>
-              </span>
-            </FinalPrice>
-          </PriceInfo>
-        )}
-      </Wrapper>
-    </>
+        </Wrapper>
+      </>
     );
   }
 }
@@ -88,6 +90,7 @@ const LectureImg = styled.div`
   overflow: hidden;
   img {
     width: 100%;
+    height: 350px;
     object-fit: cover;
     transition: all 1s ease-in-out;
     &:hover {

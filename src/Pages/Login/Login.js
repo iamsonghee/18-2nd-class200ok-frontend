@@ -5,19 +5,18 @@ import styled from "styled-components";
 import * as config from "../../config";
 import loginimage from "../../Pages/Login/login.png";
 
- function Login(props) {
+function Login(props) {
   const { Kakao } = window;
-  console.log(props)
-  //카카오 이메일 계정이 없는 경우 key_error 에러 
+  console.log(props);
+  //카카오 이메일 계정이 없는 경우 key_error 에러
   const handleKakao = response => {
     Kakao.Auth.login({
-      success: 
-      function (response) {
-        fetch("http://10.58.3.60:8000/user/signin", {
+      success: function (response) {
+        fetch("http://54.180.24.190:8000/user/signin", {
           method: "POST",
           headers: {
-            Authorization: response.new_token,
-          }, 
+            Authorization: response.access_token,
+          },
         })
           .then(res => res.json())
           .then(res => {
@@ -56,8 +55,7 @@ import loginimage from "../../Pages/Login/login.png";
     </LoginPage>
   );
 }
-export default withRouter(Login)
-
+export default withRouter(Login);
 
 const buttonStyle = styled.button`
   display: flex;

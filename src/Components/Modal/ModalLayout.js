@@ -79,7 +79,7 @@ class ModalLayout extends Component {
     return (
       <Form>
         <Main>
-          <Img src={this.props.data.images[id].imgURL}></Img>
+          <Img src={this.props.data.images[id].image_url}></Img>
           <StatusBars>
             {this.props.data.images.map((img, idx) => {
               return (
@@ -114,7 +114,11 @@ class ModalLayout extends Component {
                 return <span key={idx}>{tag}</span>;
               })}
             </Tags>
+<<<<<<< HEAD
             <div className="titleText">{this.props.data.title} </div>
+=======
+            <div className="titleText">{this.props.data.title}</div>
+>>>>>>> 3a1790f... ADD: 제품리스트 filter,sort 기능, 이미지 s3 모달연결 기능추가
           </Title>
         </Main>
         {this.props.children}

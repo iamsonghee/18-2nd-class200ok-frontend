@@ -18,38 +18,40 @@ class OpenSoon extends Component {
     };
   }
 
-
   componentDidMount = () => {
     if (!Kakao.isInitialized()) {
       Kakao.init(config.KAKAO_LDH_KEY);
     }
-    fetch(mockAPI)
+    fetch("http://54.180.24.190:8000/lecture")
       .then(res => res.json())
       .then(res => this.setState({ classList: res }));
   };
+
+  componentDidUpdate(prevProps, preState) {}
+
   selectFilter = (value, type) => {
     const newArr = [...this.state.selectedFilter];
-    newArr[type === 'category' ? 0 : 1] = value;
+    newArr[type === "category" ? 0 : 1] = value;
     const query = this.makeQuery(newArr);
-    this.setState({selectedFilter: newArr});
-    // fetch(`API${query}`)
-    // .then(res => res.json())
-    // .then(res => this.setState({classList: res}))
-  }
-  makeQuery = (arr) => {
-    let query = '?'
-    if (arr[0]) query += `category=${arr[0]}`;
-    if (arr[1]) query += `&category=${arr[1]}`;
-   return query;
-  }
+    this.setState({ selectedFilter: newArr });
+    fetch(`http://54.180.24.190:8000/lecture${query}`)
+      .then(res => res.json())
+      .then(res => this.setState({ classList: res }));
+  };
+  makeQuery = arr => {
+    let query = "?";
+    if (arr[0]) query += `sub_category=${arr[0]}`;
+    if (arr[1]) query += `&sort=${arr[1]}`;
+    return query;
+  };
 
   handleVoteCount = () => {
-    this.setState({voteCount: this.state.voteCount+1})
-  }
+    this.setState({ voteCount: this.state.voteCount + 1 });
+  };
 
   handleModal = () => {
-    this.setState(!modalOn)
-  }
+    this.setState(!modalOn);
+  };
 
   render() {
     const { Kakao } = window;
@@ -60,31 +62,47 @@ class OpenSoon extends Component {
         <div className="banner">
           <div className="boxContainer">
             <div className="firstBox">클래스를 응원하면 더 빨리 제작돼요</div>
-            <div className="secondBox"><div>응원한 클래스</div> <div>{this.state.voteCount}개</div></div>
-            <div className="thirdBox"><div>내 응원권</div></div>
+            <div className="secondBox">
+              <div>응원한 클래스</div> <div>{this.state.voteCount}개</div>
+            </div>
+            <div className="thirdBox">
+              <div>내 응원권</div>
+            </div>
           </div>
         </div>
         <div className="filter">
-        <select className="firstFilter" onChange={(e) => this.selectFilter(e.target.value, 'category')}>
-          <option value={1}>미술</option>
-          <option value={2}>공예</option>
-          <option value={3}>디지털 드로잉</option>
-          <option value={4}>라이프 스타일</option>
-          <option value={5}>사진/영상</option>
-          <option value={6}>요리/음료</option>
-          <option value={7}>음악</option>
-          <option value={8}>운동</option>
-        </select>
-        <select className="secondFilter" onChange={e => this.selectFilter(e.target.value,'sort')}>
-          <option value='latest'>신상품순</option>
-          <option value='lowest'>낮은 가격순</option>
-          <option value='highest'>높은 가격순</option>
-        </select>
-      </div>
+          <select
+            className="firstFilter"
+            onChange={e => this.selectFilter(e.target.value, "category")}
+          >
+            <option value={1}>미술</option>
+            <option value={2}>공예</option>
+            <option value={3}>디지털 드로잉</option>
+            <option value={4}>라이프 스타일</option>
+            <option value={5}>사진/영상</option>
+            <option value={6}>요리/음료</option>
+            <option value={7}>음악</option>
+            <option value={8}>운동</option>
+          </select>
+          <select
+            className="secondFilter"
+            onChange={e => this.selectFilter(e.target.value, "sort")}
+          >
+            <option value="latest">신상품순</option>
+            <option value="popular">낮은 가격순</option>
+            <option value="highest">높은 가격순</option>
+          </select>
+        </div>
         <div className="openSoonMain">
           <div className="list">
             {classList.pending_classes?.map(data => {
-              return <Lecture data={data} handleModal={this.handleModal} handleVoteCount={this.handleVoteCount} />;
+              return (
+                <Lecture
+                  data={data}
+                  handleModal={this.handleModal}
+                  handleVoteCount={this.handleVoteCount}
+                />
+              );
             })}
           </div>
         </div>
@@ -121,7 +139,7 @@ class OpenSoon extends Component {
 //     id: 7,
 //     name: "음악",
 //   },
-//   {    
+//   {
 //     id: 8,
 //     name: "운동",
 //   },
