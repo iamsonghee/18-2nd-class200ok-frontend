@@ -1,6 +1,13 @@
 {
+<<<<<<< HEAD
   "tabWidth": 2, 
   "endOfLine": "lf", 
   "arrowParens": "avoid",   
   "singleQuote": false 
+=======
+  "tabWidth": 2,
+  "endOfLine": "lf",
+  "arrowParens": "avoid",
+	"singleQuote": false
+>>>>>>> 3a1790f... ADD: 제품리스트 filter,sort 기능, 이미지 s3 모달연결 기능추가
 }

@@ -7,19 +7,24 @@ function Creatorintroduce() {
 
   const handleBtn = () => {
     const formData = new FormData();
-    formData.append("file", imageList);
-    console.log("fromdata:", formData);
 
-    fetch("#", {
+    imageList.forEach(img => {
+      formData.append("introduction_image", img);
+    });
+
+    fetch("http://54.180.24.190:8000/creator/class-introduction", {
       method: "POST",
       headers: {
-        // Authorization: response.new_token,
-        body: formData,
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZV9pZCI6OH0.NNZDWxZMo3V7a6qALMReMTWDOCY7SUkKQX4pinevPao",
+        // Authorization: localStorage.getItem("access_token"),
+        // "Content-Type": "multipart/form-data",
       },
       body: formData,
     })
       .then(res => res.json())
-      .then(res => {});
+      .then(res => console.log(res));
+    alert("서버에 이미지가 발사됐습니다");
   };
 
   const handleAddImg = (id, img) => {
@@ -27,7 +32,7 @@ function Creatorintroduce() {
     addImgArray[id] = img;
     setImageList(addImgArray);
   };
-  console.log(imageList);
+  // console.log(imageList);
   return (
     <CreatorIntroSection>
       <CreatorInfoHeader>
@@ -54,27 +59,27 @@ function Creatorintroduce() {
 
 const CREATOR_BOX = [
   {
-    id: 1,
+    id: 0,
     text: "클래스 주제에 대한 사진, 영상",
+  },
+  {
+    id: 1,
+    text: "작업하는 영상이 담긴 사진, 영상",
   },
   {
     id: 2,
-    text: "작업하는 영상이 담긴 사진, 영상",
-  },
-  {
-    id: 3,
     text: "완성된 작품에 대한 사진, 영상",
   },
   {
-    id: 4,
+    id: 3,
     text: "클래스 주제에 대한 사진, 영상",
   },
   {
-    id: 5,
+    id: 4,
     text: "작업하는 영상이 담긴 사진, 영상",
   },
   {
-    id: 6,
+    id: 5,
     text: "완성된 작품에 대한 사진, 영상",
   },
 ];
